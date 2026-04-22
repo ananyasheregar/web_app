@@ -1,0 +1,53 @@
+<html>
+   <head> 
+        <title>Simple Counter App</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                text-align: center;
+                margin-top: 50px;
+            }
+
+            #count {
+                font-size: 64px;
+                margin: 20px;
+                color: #333;
+            }
+
+            button {
+                font-size: 18px;
+                padding: 10px 25px;
+                cursor:pointer;
+                background: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+            }
+
+            button:hover {
+                background: #0056b3;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        
+        <h1>Click Counter</h1>
+        <div id="count">0</div>
+        <button id="incrementbtn">Click to increase</button>
+
+        <script>
+            let currentCount = 0;
+
+            const countDisplay = document.getElementById('count');
+            const button = document.getElementById('incrementbtn');
+
+            button.addEventListener('click', () => {
+                currentCount = currentCount + 1;
+                constDisplay.innerText = currentCount;
+            });
+            
+        </script>
+    </body>
+</html>

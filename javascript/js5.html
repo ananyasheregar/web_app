@@ -1,0 +1,25 @@
+<html>
+   <body>
+    <img id="myImage" src="../html/car1.jpg" style="width:300px; height:200px;">
+    <br>
+    <button onclick="displayRandomImage()">Show Random Image</button>
+   </body>
+
+   <script>
+    function displayRandomImage() {
+        //1. Create an array of your image URLs
+        const images =[
+            "car2.avif",
+            "car2.jpg",
+            "car3.jpg",
+            "chair.jfif"
+        ];
+
+        // 2. Generate a random index based on the array length
+        const randomIndex = Math.floor(Math.random() *images.length)
+
+        // 3. Update the image source (src) in the HTML
+        document.getElementById("myImage").src = imagaes[randomIndex];
+    }
+   </script>
+</html>

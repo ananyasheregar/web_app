@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Apps + 3D Slider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        nav {
+            background: #222;
+            padding: 15px;
+        }
+
+        nav button {
+            margin: 5px;
+            padding: 10px 15px;
+            background: #00adb5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .section {
+            display: none;
+            padding: 40px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .card {
+            background: #1e1e1e;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button.action {
+            padding: 10px;
+            background: #ff6f61;
+            border: none;
+            color: white;
+        }
+
+        /* 3D Slider */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            perspective: 1000px;
+        }
+
+        .carousel {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .slider-btn {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <button onclick="show('location')">Location</button>
+    <button onclick="show('dictionary')">Dictionary</button>
+    <button onclick="show('slider')">3D Slider</button>
+</nav>
+
+<!-- LOCATION -->
+<div id="location" class="section active">
+    <div class="card">
+        <h2>My Location</h2>
+        <p id="loc">Click below to get location</p>
+        <button class="action" onclick="getLocation()">Get Location</button>
+    </div>
+</div>
+
+<!-- DICTIONARY -->
+<div id="dictionary" class="section">
+    <div class="card">
+        <h2>Dictionary App</h2>
+        <input type="text" id="word" placeholder="Enter word">
+        <button class="action" onclick="searchWord()">Search</button>
+        <p id="result"></p>
+    </div>
+</div>
+
+<!-- 3D SLIDER -->
+<div id="slider" class="section">
+    <h2>3D Orbit Slider</h2>
+
+    <div class="container">
+        <div class="carousel" id="carousel">
+            <img src="https://picsum.photos/300/200?1">
+            <img src="https://picsum.photos/300/200?2">
+            <img src="https://picsum.photos/300/200?3">
+            <img src="https://picsum.photos/300/200?4">
+        </div>
+    </div>
+
+    <button class="slider-btn" onclick="prev()">Prev</button>
+    <button class="slider-btn" onclick="next()">Next</button>
+</div>
+
+<script>
+    function show(id) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+
+    // LOCATION
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(pos => {
+                document.getElementById("loc").innerText =
+                    "Latitude: " + pos.coords.latitude +
+                    " | Longitude: " + pos.coords.longitude;
+            });
+        } else {
+            document.getElementById("loc").innerText = "Not supported";
+        }
+    }
+
+    // DICTIONARY
+    function searchWord() {
+        let word = document.getElementById("word").value;
+        let url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
+
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            let meaning = data[0].meanings[0].definitions[0].definition;
+            document.getElementById("result").innerText = meaning;
+        })
+        .catch(() => {
+            document.getElementById("result").innerText = "Word not found";
+        });
+    }
+
+    // 3D SLIDER
+    const carousel = document.getElementById("carousel");
+    const images = carousel.children;
+    const total = images.length;
+
+    let angle = 0;
+    const step = 360 / total;
+
+    for (let i = 0; i < total; i++) {
+        images[i].style.transform =
+            "rotateY(" + (i * step) + "deg) translateZ(400px)";
+    }
+
+    function next() {
+        angle -= step;
+        carousel.style.transform = "rotateY(" + angle + "deg)";
+    }
+
+    function prev() {
+        angle += step;
+        carousel.style.transform = "rotateY(" + angle + "deg)";
+    }
+</script>
+
+</body>
+</html>

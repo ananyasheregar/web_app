@@ -1,0 +1,23 @@
+<html>
+
+<body>
+    <script>
+        const add = function(a,b) {
+            return a + b;
+        };
+        document.write('sum ' + add(10, 20));
+        
+        //arrow function
+        const sum = (a,b) => a+b;
+        
+
+        document.write('arrow sum' + sum(77,22));
+        
+        //using array
+        const numbers = [1, 2, 3, 4];
+        const evens = numbers.filter(n => n % 2 == 0);
+        document.write('even numbers' + evens);
+
+    </script>
+</body>
+</html>

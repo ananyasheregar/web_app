@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Timed Events Test</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin:0;
+                transition: background 0.8s ease;
+            }
+
+            .status {
+                background: white;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                text-align: center;
+            }
+
+            button {
+                padding: 10px 20px;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                background: #333;
+                color: white;
+                margin-top: 10px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div class="status">
+            <h1 id="timer">Starts in: 3</h1>
+            <p id="info">Waiting to repeat...</p>
+            <button> onclick ="stopRepeating()">Stop Auto-Change</button>
+        </div>
+
+        <script>
+            //1. setTimeout: Run once after 3 seconds
+            setTimeout(() => {
+                document.getElementById('timer').innerText="Loop Started!";
+                startLoop();
+            }, 3000);
+
+            let myInterval;
+
+            function startLoop() {
+
+                myInterval = setInterval(() => {
+                    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+                    document.body.style.backgroundColor=randomColor;
+                    document.getElementById('info').innerText="Last change at: " + new Date().toLocaleTimeString();
+                }, 2000)
+            }
+
+            function stopRepeating() {
+
+                clearInterval(myInterval);
+                document.getElementById('info').innerText = "Loop Stopped";
+                document.body.style.backgroundColor = "white";
+            }
+        </script>
+    </body>
+</html>

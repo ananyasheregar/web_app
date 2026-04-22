@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background: #222;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20px;
+            margin: 0;
+        }
+
+        #text-container {
+            font-size: 24px;
+            border-right: 3px solid #0f0;
+            padding-right: 5px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="text-container"></div>
+
+    <script>
+        const message="welcome to jscript.good morning to all.";
+        const display = document.getElementById("text-container");
+        let index = 0;
+        const speed = 1000;
+
+        function typeWriter() {
+            if (index < message.length) {
+
+                display.innerHTML += message.charAt(index);
+                index++;
+
+                setTimeout(typeWriter, speed)
+            }
+        }
+
+        //Start the effect
+        typeWriter();
+    </script>
+</body>
+</html>
