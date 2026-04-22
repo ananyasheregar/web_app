@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>HTML Unordered List Examples</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                line-height: 1.6;
+                padding: 20px;
+            }
+
+            h2 {
+                color: #333;
+                border-bottom: 2px solid #eee;
+            }
+
+            .custom-list {
+                list-style-type: square;
+                color: #d9534f;
+            }
+
+            .inline-list {
+                padding:0;
+                list-style: none;
+            }
+
+            .inline-list li {
+                display: inline;
+                margin-right: 15px;
+                background: #f4f4f4;
+                padding: 5px 10px;
+                border-radius: 4px;
+            }
+
+            .emoji-list {
+                list-style: none;
+                padding-left: 0;
+                
+            }
+
+            .emoji-list li::before {
+                content: "😒";
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2>1. Defaulyt Unordered List</h2>
+        <p>Uses the default 'disc' marker.</p>
+        <ul>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+
+        <h2>2.Styles Bullet Markers</h2>
+        <P>Using the CSS <code> list-style-type</code> property.</P>
+        <ul style="list-style-type: circle;">
+            <li>Circle Marker</li>
+        </ul>
+        <ul class="custom-list">
+            <li>Square Marker (visa CSS class)</li>
+        </ul>
+        <ul style="list-style-type: none;">
+            <li>No Marker</li>
+        </ul>
+
+        <h2>3. Nested Lists</h2>
+        <p>Lists can be nested inside <code>&lt;li&gt;</code> tags to create sub-items.</p>
+        <ul>
+            <li>Fruits
+                <ul>
+                    <li>Apple</li>
+                    <li>Banana</li>
+                </ul>
+            </li>
+            <li>Vegetables
+                <ul>
+                    <li>Carrot</li>
+                    <li>Broccoli</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>4. Horizontal Navigation Style</h2>
+        <p>Useful for menus and navigation bars.</p>
+        <ul class="inline-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <h2>5.Custom Emoji Bullets</h2>
+        <p>Using CSS pseudo-elements for custom markers.</p>
+        <ul class="emoji-list">
+            <li>Project Launch</li>
+            <li>Growth Phase</li>
+            <li>Global Reach</li>
+        </ul>
+    </body>
+</html>

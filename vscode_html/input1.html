@@ -1,0 +1,28 @@
+<body>
+    <h2>Registration Form</h2>
+    <form action="/submit" method="POST">
+        <!--Text with validation,placeholder,and focus-->
+        <label>Username:</label>
+        <input type="text" name="username" placeholder="User" required autofocus><br><br>
+
+        <!--Password with length constraints-->
+        <label>Password:</label>
+        <input type="password" name="pw" minlength="6" required><br><br>
+
+        <!-- Number with range and step -->
+         <label>Age (18-99):</label>
+         <input type="number" name="age" min="18" max="99"
+         step="1"><br><br>
+
+         <!-- File upload with restriction-->
+          <label>Upload (PDF):</label>
+          <input type="file" name="resume" accept=".pdf"><br><br>
+
+          <!--Readonly vs Disabled-->
+          <input type="text" value="Readonly" readonly>
+          <input type="text" value="Disabled" disabled><br><br>
+
+          <input type="submit" value="Submit">
+
+    </form>
+</body>

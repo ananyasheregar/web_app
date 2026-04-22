@@ -1,0 +1,47 @@
+<body>
+    <h1>Complete Profile Setup</h1>
+    <form action="/submit-profile" method="POST" id="mainForm">
+        <fieldset>
+            <legend>Basic & Advanced Inputs</legend>
+            <!-- autofocus/placeholder/minlength/maxlength/required/autocomplete-->
+             <label>Username:</label>
+             <input type="text" name="username" placeholder="JaneDoe"
+             required autofocus maxlength="20" minlength="3"><br><br>
+
+             <label>Password:</label>
+             <input type="password" name="pwd"
+             autocomplete="new-password" required><br><br>
+
+             <!-- pattern (Regex)-->
+              <label>Zip Code:</label>
+              <input type="text" name="zipcode" pattern="[0-9] {5}"
+              title="Five digits"><br><br>
+
+              <!--min, max, step, list, multiple-->
+              <label>Age (18-99):</label>
+              <input type="number" name="user_age" min="18" max="99"
+              value="25"><br><br>
+
+              <label>Browser:</label>
+              <input list="browsers" name="browser">
+              <datalist id="browser"><option value="Chrome"><option
+              value="Firefox"></datalist><br><br>
+
+              <label>Files:</label>
+              <input type="file" name="files" accept="image/*" multiple>
+        </fieldset>
+
+        <fieldset>
+            <legend>System & State</legend>
+            <!-- readonly, disabled, hidden, checked -->
+             <input type="text" name="id" value="ID-123" readonly>
+             <input type="text" value="Active" disabled><br><br>
+             <input type="hidden" name="user_token" value="secret">
+             <label><input type="checkbox" name="terms" checked> Agree</label>
+        </fieldset>
+
+        <!--Overriding/Submit -->
+        <input type="submit" value="Save">
+        <input type="submit" value="Preview" formaction="/preview" formtarget="_blank">
+    </form>
+</body>

@@ -1,0 +1,128 @@
+
+<head>
+    <title>Product Grid Gallery</title>
+    <style>
+        /* Basic Page Styling */
+        body {
+            font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        /* The Grid Container: Sets up columns and rows */
+
+        .grid-continer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+            gap: 25px;
+            max-width: 1100px;
+            width: 100%;
+        }
+        /* The Individual Product Card */
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        /* Title at the Top */
+
+        .product-card h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.4rem;
+        }
+        /*Image in the Middle */
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 15px 0;
+            background-color: #eee;
+        }
+        /*Price Styling */
+
+        .price {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #2c7a7b;
+            margin-bottom: 10px;
+        }
+        /* Description at the Bottom */
+
+        .description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-continer">
+
+        <!--Item 1-->
+        <div class="product-card">
+            <h3>Classic Watch</h3>
+            <img src="watch.jfif" alt="Watch">
+            <span class="price">$120.00</span>
+            <p class="description">A timeless stainless steel watch with a leather strap,perfect for any formal occasion.</p>
+        </div>
+
+        <!--Item 2-->
+        <div class="product-card">
+            <h3>Wireless Headphones</h3>
+            <img src="wireless.jfif" alt="Headphones">
+            <span class="price">$250.00</span>
+            <p class="description">Noise-canceling over-ear headphones with 30hours of battery life and premium sound.</p>
+        </div>
+
+        <!--Item 3-->
+        <div class="product-card">
+            <h3>Smart Camera</h3>
+            <img src="camera.jfif" alt="Camera">
+            <span class="price">$450.00</span>
+            <p class="description">Capture every moment in stunning 4k resolution with high-speed autofocus and Wi-Fi.</p>
+        </div>
+
+        <!--Item 4-->
+        <div class="product-card">
+        <h3>Modern Chair</h3>
+        <img src="chair.jfif" alt="Chair">
+        <span class="price">$85.00</span>
+        <p class="description">Minimalist ergonomic chair designed for comfort and style in your home office.</p>
+        </div>
+
+        <!--Item 5-->
+        <div class="product-card">
+        <h3>Glass Water Bottle</h3>
+        <img src="bottle.jpg" alt="Bottle">
+        <span class="price">$25.00</span>
+        <p class="description">Eco-friendly borosilicate glass bottle with a protective silicone sleeve.</p>
+        </div>
+
+        <!--Item 6-->
+        <div class="product-card">
+        <h3>Running Shoes</h3>
+        <img src="shoes.jfif" alt="Shoes">
+        <span class="price">$110.00</span>
+        <p class="description">Lightweight,breathable sneakers engineered for long-distance comfort and durability.</p>
+        </div>
+
+        
+    </div>
+</body>

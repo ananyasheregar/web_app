@@ -1,0 +1,215 @@
+
+<head>
+    <title>Ultimate Product Gallery</title>
+    <style>
+        body {
+            font-family: 'Segoe UI',sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding-top: 80px;
+        }
+
+        /* ---Header & Cart UI ---*/
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-sizing: border-box;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .cart-status {
+            background: #e67e22;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #cart-count {
+            background: white;
+            color: #e67e22;
+            padding: 2px 8px;
+            border-radius: 50%;
+        }
+        /*---Product Grid ---*/
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            gap:30px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+        .img-container{
+            cursor: zoom-in;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2ecc71;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 0.9rem;
+            color: #666;
+             
+            
+        }
+        /* ---Add to Cart Button ---*/
+
+        .cart-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .cart-btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.02);
+        }
+        /*--- Lightbox Model---*/
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox:target {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 85%;
+            max-height: 80%;
+            border: 4px solid white;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>TechStore</h2>
+        <div class="cart-status">
+            Cart Items: <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        <!--Product 1-->
+        <div class="product-card">
+            <h3>Classic Watch</h3>
+            <a href="#img1" class="img-container">
+                <img src="watch.jfif" alt="Watch">
+            </a>
+            <span class="price">$120.00</span>
+            <p class="description">A timeless stainless steel watch with a leather strap,perfect for any formal occasion.</p>
+            <button class="cart-btn" onclick="updateCart()">Add to Cart</button>
+        </div>
+
+        <!--Product 2-->
+        <div class="product-card">
+            <h3>Headphones</h3>
+            <a href="#img2" class="img-container">
+                <img src="wireless.jfif" alt="Headphones">
+            </a>
+            span class="price">$250.00</span>
+            <p class="description">Premium sound with noise-canceling technology.</p>
+            <button class="cart-btn" onclick="updateCart()">Add to Cart</button>
+        </div>
+
+        <!--Product 3-->
+        <div class="product-card">
+            <h3>Smart Camera</h3>
+            <a href="#img3" class="img-container">
+                <img src="camera.jfif" alt="Camera">
+            </a>
+            span class="price">$450.00</span>
+            <p class="description">Professional quality 4k lens for creators.</p>
+            <button class="cart-btn" onclick="updateCart()">Add to Cart</button>
+        </div>
+    </div>
+
+    <!--Lightbox Models-->
+    <div id="img1" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="watch.jfif">
+    </div>
+    <div id="img2" class="lightbox">
+        <a  href="#" class="close-btn">&times;</a>
+        <img src="camera.jfif">
+    </div>
+    <div id="img3" class="lightbox">
+        <a  href="#" class="close-btn">&times;</a>
+        <img src="wireless.jfif">
+    </div>
+
+    <script>
+        let count=0;
+
+        function updateCart() {
+            count++;
+            document.getElementById('cart-count').innerText=count;
+        }
+    </script>
+</body>

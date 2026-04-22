@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: sans-serif;
+                max-width: 600px;
+                margin: 20px auto;
+                line-height: 1.6;
+            }
+
+           .group {
+               border: 1px solid #ccc;
+               padding: 15px;
+               margin-bottom: 20px;
+               border-radius: 8px;
+            }
+
+           label {
+              font-weight: bold;
+              display: block;
+              margin-top: 10px;
+            }
+    
+            input:invalid {
+              border: 2px solid red;
+            }
+    </style>
+</head>
+<body>
+    <h1>Ultimate Input Showcase</h1>
+    <form action="/submit" method="POST">
+        <div class="group">
+            <legend>1. Basic & Validation</legend>
+            <input type="text" name="uname" placeholder="Name" required autofocus maxlength="30">
+            <input type="password" name="pwd" minlength="6" placeholder="Password (6+ chars)">
+            <input type="text" name="zip" pattern="[0-9] {5}" title="5 digit zip" placeholder="Zip (12345)">
+        </div>
+        <div class="group">
+            <legend>2. Numeric & Range</legend>
+            <input type="number" name="age" min="18" max="99" value="21">
+            <input type="text" name="fruit" list="fruits"
+            placeholder="Choose a fruit">
+            <datalist id="fruits"><option value="Apple"><option value="Mango"></datalist>
+        </div>
+        <div class="group">
+            <legend>3.Specialized</legend>
+            <input type="file" name="docs" accept=".pdf" multiple>
+            <input type="text" name="pin" inputmode="numeric" placeholder="PIN (Number pad)">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+            }
+        </style>
+    </head>
+</html>

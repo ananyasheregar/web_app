@@ -1,0 +1,137 @@
+<html>
+    <head>
+
+        <title>Interactive List</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 40px;
+                background-color: #f0f2f5;
+            }
+
+            .container {
+                max-width: 400px;
+                margin: auto;
+                background: white;
+                padding: 25px;
+                border-radius: 12px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            h2 {
+                margin-top: 0;
+                color: #1a1a1a;
+                text-align: center;
+            }
+
+            .input-group {
+                display: flex;
+                gap: 8px;
+                margin-bottom: 20px;
+            }
+
+            input {
+                flex: 1;
+                padding: 10px;
+                border: 2px solid #ddd;
+                border-radius: 6px;
+                outline: none;
+                transition: border-color 0.3s;
+            }
+
+            input:focus {
+                border-color: #007bff;
+            }
+
+            #addBtn {
+                padding: 10px 15px;
+                background: #007bff;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+            #addBtn:hover {
+                background-color: #0056b3;
+
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+            }
+
+            li{
+                background: #fff;
+                margin-bottom: 8px;
+                padding: 10px 12px;
+                border: 1px solid #eee;
+                border-radius: 6px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: transform 0.1s;
+            }
+
+            li:hover {
+                background: #fafafa;
+            }
+
+            .delete-btn {
+                background: ;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class = "container">
+            <h2>My Smart List</h2>
+
+            <div class="input-group">
+                <input type="text" id="itemInput" placeholder="Add a new task...">
+                <button id="addBtn">Add</button>
+            </div>
+
+            <ul id="myList">
+                <!-- New items will appear here --->
+            </ul>
+        </div>
+
+        <script>
+            const input = document.getElementById('itemInput');
+            const button = document.getElementById('addBtn');
+            const list = document.getElementById('myList');
+
+            function addItem() {
+                const text = input.value.trim();
+                if (text=="") return;
+
+                //1.Create the <li> element
+                    const li = document .createElement('li');
+
+                //2.Set the inner HTML (Text+Delete Button)
+                li.innerHTML= '<span>${text}</span><button class="delete-btn">Delete</button>';
+                
+                
+                //3.Add delete functionallity to the button inside this specific <li>
+                    const deleteBtn = li.querySelector('.delete-btn');
+                    deleteBtn.onclick = function() {
+                        li.remove();
+                    };
+
+                //4.Add to the list and clear input 
+                list.appendChild(li);
+                input.value="";
+                input.focus();    
+            }
+
+            button.onclick = addItem;
+            input.onkeypress = (e) => {
+                if (e.key === 'Enter') addItem();
+            };
+        </script>
+    </body>
+</html>

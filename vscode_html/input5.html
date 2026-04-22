@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: sans-serif;
+                max-width: 900px;
+                margin: 20px auto ;
+                display: flex;
+                gap: 20px;
+                background: #f4f7f6;
+            }
+
+            .form-side {
+                flex: 1;
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .monitor-side {
+                flex: 1;
+                background: #2d3436;
+                color: #00cec9;
+                padding: 20px;
+                border-radius: 10px;
+                font-family: monospace;
+                height: 500px;
+                overflow-y: auto;
+
+            }
+
+            .row {
+                margin-bottom: 15px;
+            }
+
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            input {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            input:invalid {
+                border:2px solid #d63031;
+            }
+
+            .attr-item {
+                border-bottom: 1px solid #444;
+                padding: 5px 0;
+            }
+
+            .highlight {
+                color: #fab1a0;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="form-side">
+            <h2>Interactive Form</h2>
+            <form id="demoForm">
+                <div class="row">
+                    <label>Text (required, maxlength):</label>
+                    <input type="text" name="username" placeholder="Type here..." required maxlength="15">
+                </div>
+
+                <div class="row">
+                    <label>Range (min, max, step):</label>
+                    <input type="range" name="volume" min="0" max="100" step="10" value="30">
+                </div>
+
+                <div class="row">
+                    <label>Zip Code (pattern):</label>
+                    <input type="text" name="zip" pattern="[0-9] {5}" placeholder="12345">
+                </div>
+
+                <div class="row">
+                    <label>File (accept, multiple):</label>
+                    <input type="file" name="upload" accept=".jpg, .pdf" multiple>
+                </div>
+
+                <div class="row">
+                    <label><input type="checkbox" name="terms" checked style="width: auto"> Checked by default</label>
+                </div>
+
+                <div class="monitor-side">
+                    <h3>Attribute Monitor</h3>
+                    <div id="log">Interact with an input to see its attributes...
+                    </div>
+                </div>
+
+                <script>
+                    //Select all inputs
+                    const allInputs = document.querySelectorAll('input');
+                    const logBox = document.getElementById('log');
+
+                    function syncAttributes(event) {
+                        const el = event.target;
+                        const attributes = el.attributes; //Get all HTML attributes
+
+                        let displayHtml = '<strong>Target:</strong> <span class="highlight">${el.name || 'Unnamed'}</span><br><br>';
+                        
+                        //Loop through the NamedNodeMap of attributes
+                        
+                    }
+                </script>
+            </form>
+        </div>
+    </body>
+</html>

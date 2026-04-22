@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <title>Dynamic JS List</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                padding: 20px;
+                max-width: 400px;
+            }
+
+            h2 {
+                color:#333;
+    
+            }
+
+            .input-group {
+                margin-bottom: 20px;
+                display: flex;
+                gap: 10px;
+            }
+
+            input {
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            button {
+                padding: 8px 15px;
+                background: #28a745;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background: #218838;
+            }
+
+            ul{
+                background: #f9f9f9;
+                padding: 20px 40px;
+                border-radius: 8px;
+                border: 1px solid #ddd;
+            }
+
+            li{
+                margin-bottom: 10px;
+                font-weight: bold;
+                color: #555;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2>Dynamic Task List</h2>
+
+        <div class="input-group">
+            <input type="text" id="itemInput" placeholder="Enter a new task...">
+            <button id="addBtn">Add Item</button>
+        </div>
+
+        <!--The target list-->
+        <ul id="myList">
+            <li>adding elements</li>
+        </ul>
+
+        <script>
+            const input = document.getElementById('itemInput');
+            const button = document.getElementById('addBtn');
+            const list = document.getElementById('myList');
+
+            function addItem() {
+                const text = input.value.trim();
+
+                if(text !== "") {
+                    // 1.Create the new <li> element
+                    const newLi = document.createElement('li');
+
+                    // 2.Set the text content
+                    newLi.textContent = text;
+
+                    //3.Append it to the <ul>
+                    list.appendChild(newLi);
+
+                    //4.Reset input
+                    input.value = "";
+                    input.focus();
+                }
+            }
+
+            //Trigger on click
+            button.addEventListener('click',addItem);
+
+            //Trigger on 'Enter' key
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') addItem();
+            });
+
+        </script>
+    </body>
+</html>

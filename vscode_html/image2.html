@@ -1,0 +1,82 @@
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Responsive Image Examples</title>
+<style>
+    body {
+        font-family: sans-serif;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    section {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        color: #333;
+        margin-top: 0;
+    }
+
+    code{
+        background: #eee;
+        padding: 2px 5px;
+        border-radius: 3px;
+    }
+    /*Method 1: CSS Fluid Scaling */
+
+    .responsive-img {
+        max-width: 100%;
+        /* Image won't exceed container width */
+        height: auto;
+        /* Maintain original aspect ratio */
+        display: block;
+        /* Removes extra whitespace below image */
+        border: 1px solid #ddd;
+    }
+    /* Demo container to show scaling */
+
+    .container {
+        width: 60%;
+        /* Shrink container to show image shrinking with it */
+        border: 1px dashed #999;
+        padding: 5px;
+    }
+</style>
+</head>
+<body>
+    <h1> HTML Responsive Image Guide</h1>
+    <!--1.CSS Fluid Scaling-->
+    <section>
+         <h2>1.Basic Fluid Image (CSS)</h2>
+         <p>Uses <code>max-width: 100%</code> to scale to its parent container.</p>
+         <div class="container">
+            <img src="car1.jpg" alt="Scaling Example"
+            class="responsive-img"
+         </div>
+</section>
+
+<!--2.ART DIRECTION (PICTURE TAG)-->
+<section>
+    <h2>2. Art Direction (The &lt;picture&gt; Tag</h2>
+    <p>Resize your window! This swaps to a <strong>square</strong> image on mobile(<600px).</p>
+    <picture>
+        <source media="(max-width: 600px)" srcset="car3.jpg">
+        <source media="(max-width: 1000px)" srcset="car3.jpg">
+        <!--Fallback image-->
+        <img src="car3.jpg" alt="Art Direction Demo"
+        style="width:100%; height:auto;">
+    </picture>
+</section>
+
+<!--3. RESOLUTION SWITCHING (SRCSET)-->
+<img src="car3.jpg" srcset="car3.jpg 400w, car3.jpg 800w, car3.jpg 1600w"
+ sizes="(max-width: 600px) 400px, 800px" alt="A high-res photo">
+
+</body>
+

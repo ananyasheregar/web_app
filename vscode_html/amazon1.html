@@ -1,0 +1,211 @@
+<html>
+    <head>
+        <title>Amazon.in Clone</title>
+        <style>
+            /*General Styles*/
+
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+
+            body {
+                background-color: #e3e6e6;
+            }
+            /* Navigation Bar*/
+
+            header {
+                background-color: #131921;
+                color: white;
+                padding: 10px 20px;
+            }
+
+            .navbar {
+                display: flex;
+                align-items:center;
+                justify-content: space-between;
+            }
+
+            .logo {
+                font-size: 24px;
+                font-weight: bold;
+                color: #f08804;
+                cursor: pointer;
+            }
+            .search-container {
+                display: flex;
+                flex-grow: 1;
+                margin: 0 20px;
+            }
+
+            .search-container input {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 4px 0 0 4px;
+            }
+
+            .search-btn {
+                background-color: #febd69;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 0 4px 4px 0;
+                cursor: pointer;
+            }
+
+            .nav-links {
+                display: flex;
+                gap:20px;
+                font-size: 14px;
+            }
+
+            .nav-links div {
+                cursor: pointer;
+            }
+
+            /* Secondary Nav */
+            .sub-nav {
+                background-color: #232f3e;
+                color: white;
+                padding: 8px 20px;
+                display: flex;
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            /*Hero Image */
+            .hero {
+                height: 400px;
+                background: linear-gradient(to bottom, rgba(0,0,0,0)
+                #e3e6e6), url('https://via.placeholder.com');
+                background-size: cover;
+            }
+
+            /* Product Section */
+
+            .product-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+                gap:20px;
+                padding: 20px;
+                margin-top: -150px;
+            }
+
+            .product-card {
+                background: white;
+                padding: 20px;
+                border-radius: 4px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            .product-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: contain;
+
+            }
+
+            .product-card h3 {
+                font-size: 18px;
+                margin: 10px 0;
+
+            }
+
+            .product-card p {
+                color: #b12704;
+                font-weight: bold;
+            }
+
+            .buy-btn {
+                width: 100%;
+                background: #ffd814;
+                border: none;
+                padding: 8px;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+
+            /*Footer*/
+
+            footer {
+                background-color: #232f3e;
+                color: white;
+                text-align: center;
+                padding: 40px 0;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--Header-->
+
+        <header>
+            <div class="navbar">
+                <div class ="logo">amazon.in</div>
+                <div class="search-container">
+                    <input type="text" placeholder="Search Amazon.in">
+                    <button class="search-btn"></button>
+                </div>
+                <div class = "nav-links">
+                    <div>Hello, Sign in<br><b>Account & Lists</b></div>
+                    <div>Returns<br><b>& Orders</b></div>
+                    <div><b>Cart</b></div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="sub-nav">
+            <span>All</span>
+            <span>Fresh</span>
+            <span>Amazon miniTV</span>
+            <span>Sell</span>
+            <span>Best Sellers</span>
+            <span>Mobiles</span>
+        </nav>
+
+        <!--Main Content-->
+        <main>
+            <div class="hero"></div>
+
+            <div class="product-container"></div>
+            <!----  Product 1-->
+            <div class="product-card">
+                <h3>Electronics & Gadges</h3>
+                <img src="car1.jpg" alt="Product">
+                <p>Up to 70% Off</p>
+                <button class="buy-btn">See more</button>
+            </div>
+            <!--Product 2-->
+            <div class="product-card">
+                <h3>Home Applications</h3>
+                <img src="car2.jpg" alt="Product">
+                <p>Starts at $9,999</p>
+                <button class="buy-btn">See more</button>
+            </div>
+            <!--Product 3-->
+            <div class="product-card">
+                <h3>Fashion Trends</h3>
+                <img src="car3.jpg" alt="Product">
+                <p>Min. 50% Off</p>
+                <button class="buy-btn">See more</button>
+            </div>
+            <!--Product 4-->
+            <div class="product-card">
+                <h3>SmartPhones</h3>
+                <img src="car1.jpg" alt="Product">
+                <p>Latest Launches</p>
+                <button class="buy-btn">See more</button>
+            </div>
+        </div>
+        </main>
+
+        <!-- Footer-->
+         <footer>
+            <p>Back to Top</p>
+            <div style="margin-top: 20px;">1996-2024, Amazon.com, Inc.or its affilitates</div>
+         </footer>
+    </body>
+</html>
